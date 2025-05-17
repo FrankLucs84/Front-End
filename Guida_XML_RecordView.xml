@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<RecordView id="Custom-Template"><Pages><Page id="Default" desc=""><Sections><Section id="Default" desc="Sezione di esempio dalla guida JSON" showHeader="false" collapsible="false" autoGenerate="true"><Items><Control field="P66C01" type="Auto" row="1" col="0" /><Control field="P66C03" type="Auto" row="3" col="0" colspan="2" /></Items></Section></Sections></Page></Pages></RecordView>

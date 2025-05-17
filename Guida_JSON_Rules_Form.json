@@ -1,0 +1,125 @@
+{
+    "description": "Guida alle regole di visibilit\u00e0 e obbligatoriet\u00e0 condizionale dei campi nelle form BrainBusiness",
+    "rule_structure": {
+        "entity": "Nome della entit\u00e0 (es: CatalogItemRequest)",
+        "type": "Tipo della richiesta o form (es: P27C)",
+        "rulesets": [
+            {
+                "fields": [
+                    "Campo1",
+                    "Campo2"
+                ],
+                "rules": [
+                    {
+                        "name": [
+                            "mandatoryIf",
+                            "visibleIf",
+                            "readonlyIf"
+                        ],
+                        "conditions": [
+                            {
+                                "property": "CampoControllato",
+                                "op": "eq",
+                                "value": "Valore di confronto"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "operators": [
+        {
+            "op": "eq",
+            "description": "uguale a"
+        },
+        {
+            "op": "neq",
+            "description": "diverso da"
+        },
+        {
+            "op": "contains",
+            "description": "contiene il valore"
+        },
+        {
+            "op": "notContains",
+            "description": "non contiene il valore"
+        },
+        {
+            "op": "in",
+            "description": "valore in lista"
+        },
+        {
+            "op": "notIn",
+            "description": "valore non in lista"
+        },
+        {
+            "op": "gt",
+            "description": "maggiore di"
+        },
+        {
+            "op": "lt",
+            "description": "minore di"
+        },
+        {
+            "op": "gte",
+            "description": "maggiore o uguale a"
+        },
+        {
+            "op": "lte",
+            "description": "minore o uguale a"
+        }
+    ],
+    "rule_types": {
+        "mandatoryIf": "Rende obbligatorio il campo se la condizione \u00e8 vera",
+        "visibleIf": "Rende visibile il campo se la condizione \u00e8 vera",
+        "readonlyIf": "Rende il campo in sola lettura se la condizione \u00e8 vera"
+    },
+    "examples": [
+        {
+            "description": "Rendere obbligatori i campi P27C05 e P27C06 se P27C04 \u00e8 'MERCE MANCANTE'",
+            "definition": {
+                "fields": [
+                    "P27C05",
+                    "P27C06"
+                ],
+                "rules": [
+                    {
+                        "name": [
+                            "mandatoryIf"
+                        ],
+                        "conditions": [
+                            {
+                                "property": "P27C04",
+                                "op": "eq",
+                                "value": "MERCE MANCANTE"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "description": "Rendere visibili i campi solo se il campo Stato ha valore 'Aperto'",
+            "definition": {
+                "fields": [
+                    "CampoExtra1"
+                ],
+                "rules": [
+                    {
+                        "name": [
+                            "visibleIf"
+                        ],
+                        "conditions": [
+                            {
+                                "property": "Stato",
+                                "op": "eq",
+                                "value": "Aperto"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
